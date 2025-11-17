@@ -77,7 +77,6 @@ import cors from 'cors';
 import { getMockResponse, sessions, sessionList } from './mockData.js';
 
 const app = express();
-const PORT = 5000;
 
 app.use(cors()); // Allow cross-origin requests
 app.use(express.json()); // Parse JSON bodies
@@ -146,6 +145,7 @@ app.post('/api/chat/:sessionId', (req, res) => {
 });
 
 // --- Start Server ---
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
